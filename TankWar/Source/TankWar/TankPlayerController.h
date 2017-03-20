@@ -16,6 +16,7 @@ class TANKWAR_API ATankPlayerController : public APlayerController
 	
 private:
 	virtual void BeginPlay() override;
+	virtual void Tick(float DeltaTime) override;
 
 	ATank* GetControlledTank() const;
 };
