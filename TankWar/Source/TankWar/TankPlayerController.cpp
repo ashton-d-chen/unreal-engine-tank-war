@@ -18,7 +18,7 @@ void ATankPlayerController::BeginPlay()
 		UE_LOG(LogTemp, Warning, TEXT("PlayerController not possessing a tank"));
 	}
 
-	UE_LOG(LogTemp, Warning, TEXT("PlayerConroller Begin Play"));
+//	UE_LOG(LogTemp, Warning, TEXT("PlayerConroller Begin Play"));
 }
 
 ATank* ATankPlayerController::GetControlledTank() const
