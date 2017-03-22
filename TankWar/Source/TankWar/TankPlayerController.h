@@ -15,8 +15,19 @@ class TANKWAR_API ATankPlayerController : public APlayerController
 	GENERATED_BODY()
 	
 private:
+	ATank* GetControlledTank() const;
+
+	void AimTowardsCrosshair();
+	bool GetSightRayHitLocation(FVector& hitLocation) const;
+
+	UPROPERTY(EditAnywhere)
+	float CrosshairXLocation = 0.5;
+
+	UPROPERTY(EditAnywhere)
+	float CrosshairYLocation = 0.3333;
+
+public:
 	virtual void BeginPlay() override;
 	virtual void Tick(float DeltaTime) override;
-
-	ATank* GetControlledTank() const;
 };
+
