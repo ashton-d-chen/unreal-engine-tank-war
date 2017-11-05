@@ -4,7 +4,7 @@ using UnrealBuildTool;
 
 public class TankWar : ModuleRules
 {
-	public TankWar(TargetInfo Target)
+	public TankWar(ReadOnlyTargetRules Target) : base (Target)
 	{
 		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore" });
 
