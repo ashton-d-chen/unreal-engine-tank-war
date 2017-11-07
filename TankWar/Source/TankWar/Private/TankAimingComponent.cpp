@@ -44,5 +44,5 @@ void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed)
 //	auto BarrelLocation = Barrel->GetComponentLocation().ToString();
 //	UE_LOG(LogTemp, Warning, TEXT("%s aiming at %s from %s"), *OurTankName, *HitLocation.ToString(), *BarrelLocation);
 
-	UE_LOG(LogTemp, Warning, TEXT("Firing at %s"), LaunchSpeed);
+	UE_LOG(LogTemp, Warning, TEXT("Firing at %f"), LaunchSpeed);
 }

@@ -2,8 +2,10 @@
 
 #pragma once
 
+#include "TankAimingComponent.h"
 #include "GameFramework/Pawn.h"
 #include "Tank.generated.h"
+
 
 UCLASS()
 class TANKWAR_API ATank : public APawn
@@ -12,6 +14,12 @@ class TANKWAR_API ATank : public APawn
 
 public:
 	void AimAt(FVector HitLocation);
+
+	UFUNCTION(BlueprintCallable, Category = "Setup")
+	void setBarrelReference(UStaticMeshComponent* BarrelToSet);
+
+protected:
+	UTankAimingComponent* TankAimingComponent = nullptr;
 
 private:
 	// Sets default values for this pawn's properties
@@ -24,5 +32,8 @@ private:
 	virtual void Tick( float DeltaSeconds ) override;
 
 	// Called to bind functionality to input
-	virtual void SetupPlayerInputComponent(class UInputComponent* InputComponent) override;
+	virtual void SetupPlayerInputComponent(class UInputComponent* _InputComponent) override;
+
+	UPROPERTY(EditAnywhere, Category = "Firing")
+	float LaunchSpeed = 100000;  // 1000 m/s
 };
