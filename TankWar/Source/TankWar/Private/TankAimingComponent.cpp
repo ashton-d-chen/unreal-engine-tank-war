@@ -38,6 +38,11 @@ void UTankAimingComponent::setBarrelReference(UStaticMeshComponent* BarrelToSet)
 	Barrel = BarrelToSet;
 }
 
+void UTankAimingComponent::setTurretReference(UStaticMeshComponent* TurretToSet)
+{
+	Turret = TurretToSet;
+}
+
 void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed)
 {
 	auto TankName = GetOwner()->GetName();
@@ -65,8 +70,22 @@ void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed)
 	if (success)
 	{
 		auto AimDirection = OutLaunchVelocity.GetSafeNormal();
-		UE_LOG(LogTemp, Warning, TEXT("%s firing at %s"), *TankName, *AimDirection.ToString());
+		//UE_LOG(LogTemp, Warning, TEXT("%s firing at %s"), *TankName, *AimDirection.ToString());
+
+		MoveBarrel(AimDirection);
 	}
 
 
+}
+
+void UTankAimingComponent::MoveBarrel(FVector AimDirection)
+{
+	// Work out difference between barrel rotation and AimDirection
+	auto BarrelRotator = Barrel->GetForwardVector().Rotation();
+	auto AimRotator = AimDirection.Rotation();
+	UE_LOG(LogTemp, Warning, TEXT("AimRotator: %s"), *AimRotator.ToString());
+
+	auto DeltaRotator = AimRotator - BarrelRotator;
+	// Move the barrel the right amount this frame
+	// Given a max elevation speed, and the 
 }

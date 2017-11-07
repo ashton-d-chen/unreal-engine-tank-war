@@ -20,6 +20,9 @@ public:
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
 	void setBarrelReference(UStaticMeshComponent* BarrelToSet);
+
+	void setTurretReference(UStaticMeshComponent* TurretToSet);
+
 	void AimAt(FVector HitLocation, float LaunchSpeed);
 
 protected:
@@ -28,4 +31,7 @@ protected:
 	
 private:
 	UStaticMeshComponent* Barrel = nullptr;
+	UStaticMeshComponent* Turret = nullptr;
+
+	void MoveBarrel(FVector AimDirection);
 };
