@@ -52,4 +52,7 @@ private:
 
 	UPROPERTY(EditAnyWhere, Category = "Setup")
 	TSubclassOf<AProjectile> ProjectileBluePrint;   // Or TSubclassOf<T> can be used
+
+	float ReloadTimeInSeconds = 5; // 5 seconds
+	double LastFireTime = 0;
 };

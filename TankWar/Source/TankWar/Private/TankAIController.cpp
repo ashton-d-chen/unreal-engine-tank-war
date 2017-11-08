@@ -7,7 +7,7 @@
 void ATankAIController::BeginPlay()
 {
 	Super::BeginPlay();
-
+	/*
 	auto const ControlledTank = GetControlledTank();
 
 	if (ControlledTank)
@@ -29,6 +29,7 @@ void ATankAIController::BeginPlay()
 	{
 		UE_LOG(LogTemp, Warning, TEXT("PlayerTank not found"));
 	}
+	*/
 }
 
 ATank * ATankAIController::GetControlledTank() const
@@ -55,7 +56,7 @@ void ATankAIController::Tick(float DeltaTime)
 		if (ControlledTank)
 		{
 			ControlledTank->AimAt(PlayerTank->GetActorLocation());
-			ControlledTank->Fire();
+			ControlledTank->Fire();  // TODO limite fire rate
 		}
 	}
 }
