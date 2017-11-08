@@ -1,6 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "TankWar.h"
+#include "../Public/TankBarrel.h"
 #include "TankAimingComponent.h"
 
 
@@ -33,7 +34,7 @@ void UTankAimingComponent::TickComponent(float DeltaTime, ELevelTick TickType, F
 	// ...
 }
 
-void UTankAimingComponent::setBarrelReference(UStaticMeshComponent* BarrelToSet)
+void UTankAimingComponent::setBarrelReference(UTankBarrel* BarrelToSet)
 {
 	Barrel = BarrelToSet;
 }
@@ -86,6 +87,10 @@ void UTankAimingComponent::MoveBarrel(FVector AimDirection)
 	UE_LOG(LogTemp, Warning, TEXT("AimRotator: %s"), *AimRotator.ToString());
 
 	auto DeltaRotator = AimRotator - BarrelRotator;
+	
+	
 	// Move the barrel the right amount this frame
+	Barrel->Elevate(5);
+
 	// Given a max elevation speed, and the 
 }
