@@ -9,6 +9,7 @@
 
 class UTankBarrel;
 
+// Holds barrel's properties and Elevate method
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class TANKWAR_API UTankAimingComponent : public UActorComponent
 {
