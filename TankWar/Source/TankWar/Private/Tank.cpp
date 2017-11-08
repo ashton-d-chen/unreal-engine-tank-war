@@ -53,7 +53,10 @@ void ATank::Fire()
 	// Sapwn a projectile
 	auto Location = Barrel->GetSocketLocation(FName("Projectile"));
 	auto Rotator = Barrel->GetSocketRotation(FName("Projectile"));
-	GetWorld()->SpawnActor<AProjectile>(ProjectileBluePrint, Location, Rotator);
+	auto Projectile = GetWorld()->SpawnActor<AProjectile>(ProjectileBluePrint, Location, Rotator);
+
+	// Launch projectile
+	Projectile->LaunchProjectile(LaunchSpeed);
 }
 
 void ATank::setBarrelReference(UTankBarrel* BarrelToSet)
