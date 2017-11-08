@@ -73,7 +73,7 @@ void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed)
 	// if there is a solution found
 	if (bHaveAimSolution)
 	{
-		UE_LOG(LogTemp, Warning, TEXT("%f: Aim solution found."), Time)
+//		UE_LOG(LogTemp, Warning, TEXT("%f: Aim solution found."), Time)
 
 		auto AimDirection = OutLaunchVelocity.GetSafeNormal();
 		//UE_LOG(LogTemp, Warning, TEXT("%s firing at %s"), *TankName, *AimDirection.ToString());
@@ -94,7 +94,7 @@ void UTankAimingComponent::MoveBarrel(FVector AimDirection)
 	// Work out difference between barrel rotation and AimDirection
 	auto BarrelRotator = Barrel->GetForwardVector().Rotation();
 	auto AimRotator = AimDirection.Rotation();
-	UE_LOG(LogTemp, Warning, TEXT("AimRotator: %s"), *AimRotator.ToString());
+//	UE_LOG(LogTemp, Warning, TEXT("AimRotator: %s"), *AimRotator.ToString());
 
 	auto DeltaRotator = AimRotator - BarrelRotator;
 	

@@ -8,6 +8,7 @@
 
 class UTankBarrel;
 class UTurret;
+class AProjectile;
 
 UCLASS()
 class TANKWAR_API ATank : public APawn
@@ -30,6 +31,10 @@ protected:
 	UTankAimingComponent* TankAimingComponent = nullptr;
 
 private:
+
+	// Local barrel reference for spawning projectile
+	UTankBarrel* Barrel = nullptr;
+
 	// Sets default values for this pawn's properties
 	ATank();
 
@@ -44,4 +49,7 @@ private:
 
 	UPROPERTY(EditAnywhere, Category = "Firing")
 	float LaunchSpeed = 400000;  // 4000 m/s
+
+	UPROPERTY(EditAnyWhere, Category = "Setup")
+	TSubclassOf<AProjectile> ProjectileBluePrint;   // Or TSubclassOf<T> can be used
 };
