@@ -98,7 +98,7 @@ void UTankAimingComponent::MoveBarrel(FVector AimDirection)
 	
 	
 	// Move the barrel the right amount this frame
-	Barrel->Elevate(5);
+	Barrel->Elevate(DeltaRotator.Pitch);
 
 	// Given a max elevation speed, and the 
 }
