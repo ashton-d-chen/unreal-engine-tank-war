@@ -2,6 +2,7 @@
 
 #include "TankWar.h"
 #include "../Public/TankBarrel.h"
+#include "../Public/TankTurret.h"
 #include "TankAimingComponent.h"
 
 
@@ -39,7 +40,7 @@ void UTankAimingComponent::setBarrelReference(UTankBarrel* BarrelToSet)
 	Barrel = BarrelToSet;
 }
 
-void UTankAimingComponent::setTurretReference(UStaticMeshComponent* TurretToSet)
+void UTankAimingComponent::setTurretReference(UTankTurret* TurretToSet)
 {
 	Turret = TurretToSet;
 }
@@ -99,6 +100,7 @@ void UTankAimingComponent::MoveBarrel(FVector AimDirection)
 	
 	// Move the barrel the right amount this frame
 	Barrel->Elevate(DeltaRotator.Pitch);
+	Turret->Rotate(DeltaRotator.Yaw);
 
 	// Given a max elevation speed, and the 
 }
