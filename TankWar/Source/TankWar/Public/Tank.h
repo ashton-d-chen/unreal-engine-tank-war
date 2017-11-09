@@ -47,12 +47,15 @@ private:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* _InputComponent) override;
 
-	UPROPERTY(EditAnywhere, Category = "Firing")
+	UPROPERTY(EditDefaultsOnly, Category = "Firing")
 	float LaunchSpeed = 4000;  // 4000 m/s
+	
+	UPROPERTY(EditDefaultsOnly, Category = "Firing")
+	float ReloadTimeInSeconds = 3; // 5 seconds
 
-	UPROPERTY(EditAnyWhere, Category = "Setup")
+	UPROPERTY(EditDefaultsOnly, Category = "Setup")
 	TSubclassOf<AProjectile> ProjectileBluePrint;   // Or TSubclassOf<T> can be used
 
-	float ReloadTimeInSeconds = 5; // 5 seconds
+
 	double LastFireTime = 0;
 };
