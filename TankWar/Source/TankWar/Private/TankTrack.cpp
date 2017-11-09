@@ -7,8 +7,10 @@
 
 void UTankTrack::SetThrottle(float Throttle)
 {
-	auto Time = GetWorld()->GetTimeSeconds();
+	//auto Time = GetWorld()->GetTimeSeconds();
 	auto Name = GetName();
-	UE_LOG(LogTemp, Warning, TEXT("%f: throttle is %s"), *Name);
+  UE_LOG(LogTemp, Warning, TEXT("%s throttle is %f"), *Name, Throttle);
+
+	// TODO clamp raw throttle value so player can't increase tank speed
 }
 

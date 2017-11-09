@@ -43,7 +43,7 @@ void ATank::AimAt(FVector HitLocation)
 void ATank::Fire()
 {
 	auto Time = GetWorld()->GetTimeSeconds();
-	UE_LOG(LogTemp, Warning, TEXT("%f: Tank fires"), Time);
+//	UE_LOG(LogTemp, Warning, TEXT("%f: Tank fires"), Time);
 
 	bool bReloaded = (FPlatformTime::Seconds() - LastFireTime) > ReloadTimeInSeconds;
 	if (!bReloaded)
