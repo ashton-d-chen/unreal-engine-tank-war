@@ -17,4 +17,9 @@ class TANKWAR_API UTankTrack : public UStaticMeshComponent
 public:
 	UFUNCTION(BlueprintCallable, Category = "Input")
 	void SetThrottle(float Throttle);
+
+private:
+	// Max force per track, in Newtons
+	UPROPERTY(EditDefaultsOnly, Category = "Setup")
+	float TrackMaxDrivingForce = 40000; // 62 tons * 1000 kg/ton * 1.28 m/2;
 };
