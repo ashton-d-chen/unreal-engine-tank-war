@@ -21,16 +21,10 @@ public:
 	void Initialize(UTankTrack* leftTrackToSet, UTankTrack* RightTrackToSet);
 
 	UFUNCTION(BlueprintCallable, Category = "Input")
-	void IntendMoveForward(float Throw);
+	void IntendMoveStraight(float Throw);
 	
 	UFUNCTION(BlueprintCallable, Category = "Input")
-		void IntendMoveBack(float Throw);
-
-	UFUNCTION(BlueprintCallable, Category = "Input")
-		void IntendTurnLeft(float Throw);
-
-	UFUNCTION(BlueprintCallable, Category = "Input")
-		void IntendTurnRight(float Throw);
+		void IntendTurn(float Throw);
 
 private:
 	UTankTrack* Lefttrack = nullptr;
