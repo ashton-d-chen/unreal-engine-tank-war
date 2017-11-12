@@ -9,6 +9,7 @@
 class UTankBarrel;
 class UTurret;
 class AProjectile;
+class UTankMovementComponent;
 
 UCLASS()
 class TANKWAR_API ATank : public APawn
@@ -29,6 +30,9 @@ public:
 
 protected:
 	UTankAimingComponent* TankAimingComponent = nullptr;
+
+	UPROPERTY(BlueprintReadOnly, Category = "Setup")
+	UTankMovementComponent* MovementComponent = nullptr;
 
 private:
 
@@ -55,7 +59,6 @@ private:
 
 	UPROPERTY(EditDefaultsOnly, Category = "Setup")
 	TSubclassOf<AProjectile> ProjectileBluePrint;   // Or TSubclassOf<T> can be used
-
 
 	double LastFireTime = 0;
 };
